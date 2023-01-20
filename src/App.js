@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  Grid,
+  useTheme,
+} from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+import SidebarMain from "./sidebar/SidebarMain";
+import ContentMain from "./content/ContentMain";
+import FooterMain from "./footer/FooterMain";
+import HeaderMain from "./header/HeaderMain";
 
 function App() {
+  const { tokens } = useTheme();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid
+      columnGap="0.5rem"
+      rowGap="0.5rem"
+      templateColumns="1fr 1fr 1fr"
+    >
+      <HeaderMain tokens={tokens} />
+      <ContentMain />
+      <SidebarMain />
+      <FooterMain tokens={tokens} />
+    </Grid>
   );
 }
 
